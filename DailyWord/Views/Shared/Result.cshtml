@@ -1,0 +1,34 @@
+﻿@model DailyWord.Models.ResultViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result</title>
+</head>
+<body>
+    <div>
+        <p>>Mord of the day:</p>
+        <h3>@Model.MostPopularWord.Item1</h3>
+        <p>Count of people: @Model.MostPopularWord.Item2</p>
+    </div>
+    @if (Model.UserWord != null)
+    {
+    <div>
+        <p>Your word:</p>
+        <h4>@Model.UserWord.Item1</h4>
+    </div>
+    }
+    <div>
+        <p>Similar words:</p>
+        @foreach (KeyValuePair<string, long> entry in Model.SimilarWords)
+        {
+           <p>@entry.Key : @entry.Value</p>
+        }
+    </div>
+</body>
+</html>

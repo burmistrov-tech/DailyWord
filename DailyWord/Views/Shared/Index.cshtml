@@ -1,0 +1,28 @@
+﻿@model DailyWord.Models.WordViewModel
+@{    
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Type your daily word!</title>    
+</head>
+<body>
+    <h5>One word for one world!</h5>
+    @using (Html.BeginForm("AddWord", "Main", FormMethod.Post))
+    {
+        <div>
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Value)
+            @Html.TextBoxFor(m => m.Value)
+        </div>
+        <button type="submit">Send</button>
+    }
+</body>
+</html>
